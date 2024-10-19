@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Medieval Brewery Recipe Generator</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Medieval Brewery Recipe Generator</h1>
+    <p>Generate custom brewing recipes for the <strong>Medieval Brewery</strong> Minecraft plugin.</p>
+
+    <form id="recipe-form">
+        <div class="form-group">
+            <label for="recipeName">Recipe Name:</label>
+            <input type="text" id="recipeName" placeholder="Enter recipe name (e.g. beer)" required>
+        </div>
+
+        <div class="form-group">
+            <label for="ingredientSelect">Add Ingredients:</label>
+            <div class="input-group">
+                <select id="ingredientSelect">
+                    <option value="">Select Ingredient</option>
+                </select>
+                <input type="number" id="ingredientAmount" placeholder="Amount" min="1">
+                <button type="button" id="addIngredientBtn">Add Ingredient</button>
+            </div>
+            <ul id="ingredientList"></ul>
+        </div>
+
+        <div class="form-group">
+            <label for="effectSelect">Add Effects:</label>
+            <div class="input-group">
+                <select id="effectSelect">
+                    <option value="">Select Effect</option>
+                </select>
+                <input type="number" id="effectDuration" placeholder="Duration (ticks)" min="1">
+                <input type="number" id="effectLevel" placeholder="Level" min="0">
+                <button type="button" id="addEffectBtn">Add Effect</button>
+            </div>
+            <ul id="effectList"></ul>
+        </div>
+
+        <div class="form-group">
+            <label for="potionColor">Potion Color:</label>
+            <input type="color" id="potionColor" value="#ff0000">
+        </div>
+
+        <div class="form-group">
+            <label for="chatColor">Chat Color:</label>
+            <select id="chatColor">
+                <option value="WHITE">White</option>
+                <option value="BLACK">Black</option>
+                <option value="DARK_BLUE">Dark Blue</option>
+                <option value="DARK_GREEN">Dark Green</option>
+                <option value="DARK_AQUA">Dark Aqua</option>
+                <option value="DARK_RED">Dark Red</option>
+                <option value="DARK_PURPLE">Dark Purple</option>
+                <option value="GOLD">Gold</option>
+                <option value="GRAY">Gray</option>
+                <option value="DARK_GRAY">Dark Gray</option>
+                <option value="BLUE">Blue</option>
+                <option value="GREEN">Green</option>
+                <option value="AQUA">Aqua</option>
+                <option value="RED">Red</option>
+                <option value="LIGHT_PURPLE">Light Purple</option>
+                <option value="YELLOW">Yellow</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="customModelData">Custom Model Data:</label>
+            <input type="number" id="customModelData" placeholder="Enter custom model data (default 0)">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" id="description" placeholder="Enter a description for the drink" required>
+        </div>
+
+        <div class="form-group">
+            <label for="seconds">Brewing Time (seconds):</label>
+            <input type="number" id="seconds" placeholder="e.g. 120" required>
+        </div>
+
+        <div class="form-group">
+            <label for="uses">Number of Uses:</label>
+            <input type="number" id="uses" placeholder="e.g. 12" required>
+        </div>
+
+        <button type="button" onclick="generateYAML()">Generate Recipe</button>
+    </form>
+
+    <div class="output-section">
+        <h2>Generated Recipe:</h2>
+        <textarea id="output" readonly></textarea>
+        <p>Copy this code into your <strong>recipes.yml</strong> file in the Medieval Brewery plugin folder.</p>
+    </div>
+</div>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
+
