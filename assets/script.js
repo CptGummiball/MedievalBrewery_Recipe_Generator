@@ -1,7 +1,7 @@
 let items = [];
 let effects = [];
 
-fetch('https://raw.githubusercontent.com/CptGummiball/MedievalBrewery_Recipe_Generator/refs/heads/main/assets/items.json')
+fetch('/assets/items.json')
     .then(response => response.json())
     .then(data => {
         items = Object.entries(data).map(([id, name]) => ({
@@ -12,7 +12,7 @@ fetch('https://raw.githubusercontent.com/CptGummiball/MedievalBrewery_Recipe_Gen
         populateDropdowns();
     });
 
-fetch('https://raw.githubusercontent.com/CptGummiball/MedievalBrewery_Recipe_Generator/refs/heads/main/assets/effects.json')
+fetch('/assets/effects.json')
     .then(response => response.json())
     .then(data => {
         effects = Object.entries(data).map(([id, name]) => ({
@@ -49,7 +49,7 @@ document.getElementById('addIngredientBtn').addEventListener('click', function()
         const ingredientList = document.getElementById('ingredientList');
         const item = items.find(i => i.id === ingredient);
         const li = document.createElement('li');
-        li.innerHTML = `<img src='https://raw.githubusercontent.com/CptGummiball/MedievalBrewery_Recipe_Generator/refs/heads/main/assets/items/${item.icon}' alt='${item.name}'> ${item.name}, ${amount} <button onclick="removeListItem(this)">Remove</button>`;
+        li.innerHTML = `<img src='/assets/items/${item.icon}' alt='${item.name}'> ${item.name}, ${amount} <button onclick="removeListItem(this)">Remove</button>`;
         ingredientList.appendChild(li);
     }
 });
