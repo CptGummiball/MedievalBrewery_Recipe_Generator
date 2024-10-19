@@ -1,7 +1,7 @@
 let items = [];
 let effects = [];
 
-fetch('/assets/items.json')
+fetch('https://raw.githubusercontent.com/CptGummiball/MedievalBrewery_Recipe_Generator/refs/heads/main/assets/items.json')
     .then(response => response.json())
     .then(data => {
         items = Object.entries(data).map(([id, name]) => ({
@@ -12,7 +12,7 @@ fetch('/assets/items.json')
         populateDropdowns();
     });
 
-fetch('/assets/effects.json')
+fetch('https://raw.githubusercontent.com/CptGummiball/MedievalBrewery_Recipe_Generator/refs/heads/main/assets/effects.json')
     .then(response => response.json())
     .then(data => {
         effects = Object.entries(data).map(([id, name]) => ({
